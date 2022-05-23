@@ -1,0 +1,38 @@
+.product-card {
+   width: 150px;
+    border: 1px solid #ccc;
+    background-color: white;
+    justify-content: center;
+    padding: 2%;
+    margin: 2%;
+    align-content: center;
+    width: 200px;
+    height: 250px;
+    .media {
+      height: 0;
+      padding-top: '56.25%';
+    }
+
+    .card-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .card-content {
+        display:flex;
+        flex-direction: column;
+        .title {
+            background-color: aqua;
+            margin-bottom: 4px;
+        }
+
+        .description {
+            background-color: yellow;
+            margin-top: 5px;
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+}

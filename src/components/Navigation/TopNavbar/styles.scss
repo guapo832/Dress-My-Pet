@@ -1,0 +1,12 @@
+.nav-bar{
+    display:flex; 
+    justify-content: space-between;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+    color:#f1f1f1;
+    background-color: #282A35;
+    flex-basis: 100%;
+    .button {
+        justify-content: flex-end;
+    }
+}
