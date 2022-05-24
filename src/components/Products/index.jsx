@@ -9,7 +9,7 @@ import "../../assests/images/278239420_513589940424101_354968525891982853_n.jpg"
 const Products = () => {
 
     const [productStore] = useProductStore();
-    const {isLoading, productList}  = productStore;
+    const {productList}  = productStore;
     
     console.log(productList);
     return(
