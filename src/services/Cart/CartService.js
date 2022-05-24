@@ -4,7 +4,7 @@ import {  commerce } from  '../../lib/commerce';
 const addToCart = async (productId, quantity) => {
 	try {
         
-		const data = await commerce.cart.add('prod_kpnNwA1AW9wmXB', 1 );
+		const data = await commerce.cart.add(productId, quantity );
 		return data.cart;
 	} catch(e) {
 		console.error(e);

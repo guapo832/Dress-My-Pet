@@ -1,27 +1,27 @@
 import { Constants } from './Constants';
 
 export const initialState = {
-  cart:{}
+	cart:{}
 };
 
 export const productListReducer = (state = initialState, action) => {
-  switch (action.type ) {
+	switch (action.type ) {
     
-    case Constants.ADD_TO_CART: 
-    return {
-      ...state,
-      cart: {...action.cart}
-    }
+	case Constants.ADD_TO_CART: 
+		return {
+			...state,
+			cart: {...action.cart}
+		};
 
-    case Constants.GET_CART:
-        return {
-            ...state,
-            cart: action.cart
-        }
+	case Constants.GET_CART:
+		return {
+			...state,
+			cart: action.cart
+		};
       
-    default: return { state }
-  }
+	default: return { state };
+	}
 
 };
 
-  export default productListReducer;
+export default productListReducer;
