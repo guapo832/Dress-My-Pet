@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { IconButton } from '@material-ui/core';
 import { AddShoppingCart} from '@material-ui/icons';
 import { ImageLink } from '../../lib';
@@ -11,12 +12,13 @@ import { addToCart } from '../../../services/Cart/CartService';
 import './styles.scss';
 
 const ProductCard = ({product}) => {
-	const {assets} = product;
+	const {assets, id} = product;
 
-	const [{cart}, dispatch] = useCartStore();
+	const [originalCart, dispatch] = useCartStore();
 
-	const handleAddToCart = async (e) => {
-		const newCart = await addToCart(cart.id, 1);
+	const handleAddToCart = async () => {
+		console.log(`adding product: ${id} to cart: ${originalCart.id}`);
+		const newCart = await addToCart(id, 1);
 		dispatch(addToCartAction(newCart));
 	};
 
@@ -45,6 +47,21 @@ const ProductCard = ({product}) => {
 			</div>
 		</div>
 	);
+};
+
+ProductCard.propTypes = {
+	product: PropTypes.exact({
+		description: PropTypes.string,
+		name: PropTypes.string,
+		id: PropTypes.string,
+		assets: PropTypes.arrayOf(
+			PropTypes.shape(
+				{
+					url: PropTypes.string
+				}
+			)
+		)
+	})
 };
 
 export default ProductCard;

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, About, Product } from './pages';
 import { TopNav, BottomNavbar } from './components';
@@ -7,32 +7,26 @@ import { CartStoreProvider } from './contexts/Cart/CartStoreProvider';
 import './assests/styles/styles.scss';
 
 const App = () => {
-    const [products, setProducts] = useState([]);
 
-   
-
-    
-
-
-    return (
-        <BrowserRouter>
-            <>
-                <CartStoreProvider>
-                    <TopNav></TopNav>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="products/:id" element={<Product />} />
-                        <Route exact path="/images" />
-                    </Routes>
-                    <BottomNavbar />
-                </CartStoreProvider>
-            </>
+	return (
+		<BrowserRouter>
+			<>
+				<CartStoreProvider>
+					<TopNav></TopNav>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/about" element={<About />} />
+						<Route path="products/:id" element={<Product />} />
+						<Route exact path="/images" />
+					</Routes>
+					<BottomNavbar />
+				</CartStoreProvider>
+			</>
             
            
-        </BrowserRouter>
+		</BrowserRouter>
      
-    )
-}
+	);
+};
 
 export default App;
