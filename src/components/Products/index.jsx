@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 import { useProductStore } from '../../contexts/ProductList/ProductListStoreProvider'
 
 import "./styles.scss";
-
+import "../../assests/images/278239420_513589940424101_354968525891982853_n.jpg";
 
 
 const Products = () => {

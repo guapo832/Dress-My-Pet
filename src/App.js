@@ -1,7 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from './pages';
-import { TopNav } from './components';
+import { Home, About, Product } from './pages';
+import { TopNav, BottomNavbar } from './components';
+import { CartStoreProvider } from './contexts/Cart/CartStoreProvider';
 
 import './assests/styles/styles.scss';
 
@@ -16,10 +17,16 @@ const App = () => {
     return (
         <BrowserRouter>
             <>
-                <TopNav></TopNav>
-                <Routes>
-                    <Route  path="/" element={<Home />} />
-                </Routes>
+                <CartStoreProvider>
+                    <TopNav></TopNav>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="products/:id" element={<Product />} />
+                        <Route exact path="/images" />
+                    </Routes>
+                    <BottomNavbar />
+                </CartStoreProvider>
             </>
             
            
