@@ -27,7 +27,7 @@ const ProductCard = ({product}) => {
 	return (
 		<div className="product-card">    
 			<div className="media">
-				{ assets.length && <ImageLink src={ assets[0].url } alt={'test alt'} className="card-image" /> }
+				{ assets.length && <Link to={`/products/${product.id}`}><ImageLink src={ assets[0].url } alt={'test alt'} className="card-image" /></Link> }
 			</div>
      
 			<div className="card-content">
@@ -35,8 +35,8 @@ const ProductCard = ({product}) => {
 				<div className='description' dangerouslySetInnerHTML={{__html: product.description}} />
 			</div>
 			<div className="card-actions">
-				<div>
-					<Link to={`/products/${product.id}`}>details</Link>
+				<div className="price">
+					<span className="no-discount-price">{product.price.formatted_with_symbol}</span>
 				</div>
 				<div>
 					<IconButton aria-label="Add to Cart" onClick={handleAddToCart}>

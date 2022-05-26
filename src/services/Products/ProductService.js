@@ -6,5 +6,11 @@ const fetchProducts = async () => {
 	return (data);
 };
 
-export { fetchProducts };
+const fetchProduct = async (id) => {
+	const product = await commerce.products.retrieve(id);
+
+	return product;
+}
+
+export { fetchProducts, fetchProduct };
 
