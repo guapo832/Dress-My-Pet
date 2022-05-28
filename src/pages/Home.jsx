@@ -6,10 +6,13 @@ function Home() {
 
   const productStore = useProductStore();
 
+  if(productStore && productStore.isLoading) {
+    return '...loading';
+  }
   return (
     <>
      <ProductListStoreProvider>
-         {productStore && productStore.isLoading ? '...loading' :  <ProductList /> }
+         <ProductList />
      </ProductListStoreProvider>
      </>
   

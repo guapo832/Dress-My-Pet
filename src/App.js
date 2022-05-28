@@ -13,12 +13,14 @@ const App = () => {
 			<>
 				<CartStoreProvider>
 					<TopNav></TopNav>
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/about" element={<About />} />
-						<Route path="products/:id" element={<Product />} />
-						<Route exact path="/images" />
-					</Routes>
+					<div class="main">
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/about" element={<About />} />
+							<Route path="products/:id" element={<Product />} />
+							<Route exact path="/images" />
+						</Routes>
+					</div>
 					<BottomNavbar />
 				</CartStoreProvider>
 			</>

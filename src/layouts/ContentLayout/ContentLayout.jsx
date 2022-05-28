@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.scss';
+import './ContentLayout.styles.scss';
 
 function ContentLayout({children}) {
   return (

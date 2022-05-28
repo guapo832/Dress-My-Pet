@@ -1,5 +1,5 @@
 import React from 'react'
-import ContentLayout  from '../layouts/ContentLayout';
+import ContentLayout  from '../layouts/ContentLayout/ContentLayout';
 function About() {
   return (
     <ContentLayout>

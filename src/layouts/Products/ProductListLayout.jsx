@@ -1,6 +1,6 @@
 import { Products } from '../../components';
 
-import './styles.scss';
+import './ProductListLayout.styles.scss';
 
 function ProductListLayout() {
 

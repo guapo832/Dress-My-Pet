@@ -8,7 +8,12 @@
     margin: 2%;
     align-content: center;
     width: 200px;
-    // height: 250px;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+    // height: 50px;
     .media {
       height: 150px;
       padding-top: '56.25%';

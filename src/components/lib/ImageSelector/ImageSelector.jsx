@@ -11,14 +11,17 @@ function ImageSelector({images}) {
         if(Array.isArray(images)) setSelectedImage(images[0]);
     },[images]);
 
-    console.log('imagtes', images);
+  const handleSelectImage = (e, image) => {
+    setSelectedImage(image);
+  }
+
   return (
     <div className="image-selector">
       <div className="selectable-images">
           {
               selectedImage && Array.isArray(images) ? images.map((img) => (
-                 <div className={`${img.id === selectedImage.id ? 'selected' : ''} thumbnail-container`}>
-                    <ImageLink src={img.url} className="thumbnail"></ImageLink>
+                 <div key={img.id} className={`${img.id === selectedImage.id ? 'selected' : ''} thumbnail-container`}>
+                   <button onClick={(e) => { handleSelectImage(e, img); }}><ImageLink src={img.url} className="thumbnail"></ImageLink></button>
                  </div> 
                )) : ''
              

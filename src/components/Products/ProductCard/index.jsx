@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import PropTypes from 'prop-types';
 import { IconButton } from '@material-ui/core';
@@ -9,7 +9,7 @@ import { useCartStore } from '../../../contexts/Cart/CartStoreProvider';
 import { addToCart as addToCartAction } from '../../../contexts/Cart/CartActions';
 import { addToCart } from '../../../services/Cart/CartService';
 
-import './styles.scss';
+import './ProductCard.styles.scss';
 
 const ProductCard = ({product}) => {
 	const {assets, id} = product;

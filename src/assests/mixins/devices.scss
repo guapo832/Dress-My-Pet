@@ -1,0 +1,27 @@
+@mixin devices ($breakpoint) {
+
+    @if $breakpoint == mobile {
+        @media only screen and (max-width: 480px) and (min-width: 320px) {
+            @Content;
+        }
+    }
+
+    @if $breakpoint = tablet {
+        @media only screen and (max-width: 768px) and (min-width: 481px) {
+            @Content;
+        }
+    }
+
+    @if $breakpoint = laptop {
+        @media only screen and (max-width: 1024px) and (min-width: 769px) {
+            @Content;
+        }
+    }
+
+    @if $breakpoint = desktop {
+        @media only screen and (max-width: 1200px) and (min-width: 1025px) {
+            @Content;
+        }
+    }
+
+}

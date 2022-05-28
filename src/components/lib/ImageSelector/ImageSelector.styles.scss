@@ -1,16 +1,24 @@
 .image-selector {
     display:flex;
     background-color: white;
+    max-width: 640px;
+    max-height: 480px;
+    height:640px;
+    width:100%;
     
     .image-view {
-       padding: 40px;
+       max-width: 640px;
+       max-height: 640px;
+       padding: 0 60px 0;
     }
 
     .main-image {
         max-width: 640px;
+        max-height: 640px;
         object-fit: contain;
         height: 100%;
         width:100%;
+        min-width: 320px;
     }
 
     .selectable-images {
@@ -24,6 +32,11 @@
             height: 100px;
             align-items: center;
             justify-content: center;
+            button: {
+                padding: 0;
+                height:80px;
+                width:80px;
+            }
         }
         .thumbnail {
             height: 80px;
