@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Button } from '../';
 
 function AddToCartButton() {
-  return (
-    <div className="add-to-cart-button">
+
+	const addToCart = () => {
+		console.log('added to cart');
+	};
+
+
+	return (
+		<Button onClick={addToCart}>
       Add To Cart
-    </div>
-  )
+		</Button>
+	);
 }
 
-export default AddToCartButton
+export default AddToCartButton;

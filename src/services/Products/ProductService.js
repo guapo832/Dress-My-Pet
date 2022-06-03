@@ -7,10 +7,16 @@ const fetchProducts = async () => {
 };
 
 const fetchProduct = async (id) => {
-	const product = await commerce.products.retrieve(id);
+	
+	const product = await commerce.products.retrieve(id,);
 
 	return product;
-}
+};
 
-export { fetchProducts, fetchProduct };
+const fetchVariant = async(productId, variantId) => {
+	const variant = await commerce.products.getVariant(productId, variantId);
+	return variant;
+};
+
+export { fetchProducts, fetchProduct, fetchVariant };
 

@@ -9,20 +9,34 @@
     align-content: center;
     width: 200px;
     opacity: 0.5;
-
+    transition: opacity .75s; background-color: 1s color 1s;
+    border-radius: 25px;
     &:hover {
         opacity: 1;
+        background-color: black;
+        color:white;
     }
     // height: 50px;
     .media {
       height: 150px;
       padding-top: '56.25%';
+     
+      
+      &:hover {
+          height: 150px;
+      }
     }
+
 
     .card-image {
         object-fit: cover;
         width: 100%;
         height: 100%;
+        border-radius: 25px;
+        transition: height 1s;
+        &:hover {
+            height:250px;
+        }
     }
 
     .card-actions {
