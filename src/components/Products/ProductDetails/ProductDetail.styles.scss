@@ -1,0 +1,34 @@
+@import '../../../assests/styles/colors';
+
+.product-detali {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+height: 100%;
+    .left-container {
+        padding-left:0.5rem;
+        padding-right:0.5rem;
+        width:66%;
+        display:flex;
+        flex-direction: column;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            align-items: center;
+            align-self: center;
+        }
+    }
+
+    .right-container {
+        width: 32%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        background-color:yellow;
+    }
+}
