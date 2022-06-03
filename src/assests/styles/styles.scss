@@ -3,8 +3,12 @@ body {
     background-color: black;
     display:flex;
     flex-direction: column;
-
+    margin:0;
+    
     #root {
+        background-image: url(../images/278239420_513589940424101_354968525891982853_n.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
