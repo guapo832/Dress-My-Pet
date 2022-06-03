@@ -2,23 +2,18 @@ import { Constants } from './Constants';
 
 export const initialState = {
 	isLoading: true,
-	productList: []
+	product: {id:0, assets:[], description: ''}
 };
 
-export const productListReducer = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
 	switch (action.type ) {
     
-	case Constants.ADD_PRODUCT: 
-		return {
-			...state,
-			productList: state.productList.concat(action.product)
-		};
 
-	case Constants.REFRESH_PRODUCTS:
+	case Constants.LOAD_PRODUCT:
 		return {
 			...state,
 			isLoading: false,
-			productList: action.payload
+			product: action.payload
 		};
 
 	case Constants.SET_ISLOADING:
@@ -32,4 +27,4 @@ export const productListReducer = (state = initialState, action) => {
 
 };
 
-export default productListReducer;
+export default productReducer;

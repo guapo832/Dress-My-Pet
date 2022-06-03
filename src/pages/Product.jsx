@@ -1,11 +1,22 @@
-import React from 'react'
-
+import React from 'react';
+import ContentLayout from '../layouts/ContentLayout/ContentLayout';
+import { useParams } from 'react-router-dom';
+import { ProductDetail } from '../components';
+import { ProductStoreProvider } from '../contexts/Product/StoreProvider';
 function Product() {
-  return (
-    <div className="product">
-      I am a product Detail
-    </div>
-  )
+
+	const { id, vid } = useParams();
+	return (
+		<ContentLayout>
+			{
+				<ProductStoreProvider productId={id} variantId={vid || ''}>
+					<ProductDetail />
+        
+				</ProductStoreProvider>
+
+			}
+		</ContentLayout>
+	);
 }
 
-export default Product
+export default Product;

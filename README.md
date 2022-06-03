@@ -1,3 +1,12 @@
+# Dress My Pet Commerce Site
+
+This project is a commerce website that interfaces with a commerce service provider (currently commercejs.com)
+
+Also uses stripe for payment service.
+
+Below is the information on how to reuse this application.
+
+You'll need to create an .env file and provide your own keys for commerce.js... documentation can be found on their site.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

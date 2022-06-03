@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { IconButton } from '@material-ui/core';
 import { AddShoppingCart} from '@material-ui/icons';
 import { ImageLink } from '../../lib';
@@ -8,15 +9,16 @@ import { useCartStore } from '../../../contexts/Cart/CartStoreProvider';
 import { addToCart as addToCartAction } from '../../../contexts/Cart/CartActions';
 import { addToCart } from '../../../services/Cart/CartService';
 
-import './styles.scss';
+import './ProductCard.styles.scss';
 
 const ProductCard = ({product}) => {
-	const {assets} = product;
+	const {assets, id} = product;
 
-	const [{cart}, dispatch] = useCartStore();
+	const [originalCart, dispatch] = useCartStore();
 
-	const handleAddToCart = async (e) => {
-		const newCart = await addToCart(cart.id, 1);
+	const handleAddToCart = async () => {
+		console.log(`adding product: ${id} to cart: ${originalCart.id}`);
+		const newCart = await addToCart(id, 1);
 		dispatch(addToCartAction(newCart));
 	};
 
@@ -25,7 +27,7 @@ const ProductCard = ({product}) => {
 	return (
 		<div className="product-card">    
 			<div className="media">
-				{ assets.length && <ImageLink src={ assets[0].url } alt={'test alt'} className="card-image" /> }
+				{ assets.length && <Link to={`/products/${product.id}`}><ImageLink src={ assets[0].url } alt={'test alt'} className="card-image" /></Link> }
 			</div>
      
 			<div className="card-content">
@@ -33,8 +35,8 @@ const ProductCard = ({product}) => {
 				<div className='description' dangerouslySetInnerHTML={{__html: product.description}} />
 			</div>
 			<div className="card-actions">
-				<div>
-					<Link to={`/products/${product.id}`}>details</Link>
+				<div className="price">
+					<span className="no-discount-price">{product.price.formatted_with_symbol}</span>
 				</div>
 				<div>
 					<IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
@@ -45,6 +47,21 @@ const ProductCard = ({product}) => {
 			</div>
 		</div>
 	);
+};
+
+ProductCard.propTypes = {
+	product: PropTypes.exact({
+		description: PropTypes.string,
+		name: PropTypes.string,
+		id: PropTypes.string,
+		assets: PropTypes.arrayOf(
+			PropTypes.shape(
+				{
+					url: PropTypes.string
+				}
+			)
+		)
+	})
 };
 
 export default ProductCard;
