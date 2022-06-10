@@ -1,0 +1,3 @@
+export const Constants = {
+	LOAD_PRODUCT: 'DRESSMYPET/PRODUCT/LOAD_PRODUCT'
+}

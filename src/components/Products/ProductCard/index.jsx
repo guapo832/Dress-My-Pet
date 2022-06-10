@@ -14,10 +14,9 @@ import './ProductCard.styles.scss';
 const ProductCard = ({product}) => {
 	const {assets, id} = product;
 
-	const [originalCart, dispatch] = useCartStore();
+	const [ , dispatch] = useCartStore();
 
 	const handleAddToCart = async () => {
-		console.log(`adding product: ${id} to cart: ${originalCart.id}`);
 		const newCart = await addToCart(id, 1);
 		dispatch(addToCartAction(newCart));
 	};
