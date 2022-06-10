@@ -15,18 +15,14 @@ function ImageSelector({images}) {
 	const handleSelectImage = (e,image) => {
 		
 		setSelectedImage(image);
-		// e.preventDefault();
 	};
 
 	const handleMouseOverImage = (e, image) => {
 		setMouseOutImage({...image});
-		// setSelectedImage(image);
-		// e.preventDefault();
 	}
 
 	const handleMouseOutImage = (e, img) => {
 		setMouseOutImage(null);
-		// e.preventDefault();
 	}
 
 	return (

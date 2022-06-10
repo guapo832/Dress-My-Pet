@@ -1,3 +1,5 @@
+@import '../../../assests//mixins/devices';
+
 .image-selector {
     display:flex;
     background-color: white;
@@ -6,7 +8,15 @@
     height:640px;
     width:100%;
 
-    
+    @include desktop-and-laptop {
+        max-height: 480px;
+    }
+
+    @include mobile-and-tablet {
+        flex-wrap: wrap;
+        max-height: 640px;
+    }
+
     .image-view {
        max-width: 640px;
        max-height: 640px;
