@@ -13,10 +13,15 @@ const fetchProduct = async (id) => {
 	return product;
 };
 
-const fetchVariant = async(productId, variantId) => {
-	const variant = await commerce.products.getVariant(productId, variantId);
+const fetchVariant = async(variantId) => {
+	const variant = await commerce.products.getVariant(variantId);
 	return variant;
 };
 
-export { fetchProducts, fetchProduct, fetchVariant };
+const fetchVariants = async(productId) => {
+	const variants = await commerce.products.getVariants(productId);
+	return variants;
+}
+
+export { fetchProducts, fetchProduct, fetchVariant, fetchVariants };
 

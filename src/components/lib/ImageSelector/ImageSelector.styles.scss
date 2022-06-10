@@ -5,6 +5,7 @@
     max-height: 480px;
     height:640px;
     width:100%;
+
     
     .image-view {
        max-width: 640px;
@@ -15,10 +16,12 @@
     .main-image {
         max-width: 640px;
         max-height: 640px;
-        object-fit: contain;
+        object-fit: cover;
         height: 100%;
         width:100%;
         min-width: 320px;
+        border-radius: 25px;
+       
     }
 
     .selectable-images {
@@ -27,21 +30,35 @@
         justify-content: space-around;
         
         .thumbnail-container {
+            button {
+                padding: 0;
+                height:80px;
+                width:80px;
+                background-color: white!important;
+                border-width: 0!important;
+                opacity: 0.5;
+                &:hover{
+                    opacity: 1.0;
+                }
+            }
             display: flex;
             width: 100px;
             height: 100px;
             align-items: center;
             justify-content: center;
-            button: {
-                padding: 0;
-                height:80px;
-                width:80px;
+            
+            &.selected {
+              button {
+                  opacity: 1.0
+              }
             }
+
         }
         .thumbnail {
             height: 80px;
             width: 80px;
-            object-fit: contain;
+            object-fit: cover;
+            border-radius: 12px;
         }
     }
 }
