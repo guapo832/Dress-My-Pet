@@ -6,6 +6,7 @@ import React, {
 import { fetchVariants } from '../../../services/Products/ProductService';
 import variantReducer, { initialState } from './Reducer';
 import { setVariants } from './actions';
+import { getters } from './getters';
 
 
 const VariantContext = React.createContext();
@@ -34,12 +35,18 @@ export const VariantStoreProvider = ({productId, children}) => {
 
 	const [variants, dispatch] = useReducer(variantReducer, initialState  );
 
+	const store = {
+		state: variants,
+		getters: getters(variants),
+		actions: dispatch
+	};
+
 	useEffect(() => {
 		console.log('initVariant', productId);
 		initVariants(dispatch, productId);
 	}, [productId]);
 
-	return (<VariantContext.Provider value={variants}>{children}</VariantContext.Provider>);
+	return (<VariantContext.Provider value={store}>{children}</VariantContext.Provider>);
 };
 
 

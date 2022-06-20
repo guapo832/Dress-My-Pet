@@ -2,13 +2,18 @@ import React from 'react';
 import VariantGroup from './VariantGroup/VariantGroup';
 import { useVariantStore } from '../../../../contexts/Product/Variant/StoreProvider';
 
-function VariantSelector({product}) {
+function VariantSelector({product, selected}) {
 
-    const {variants} = useVariantStore();
+	const {state: variantState, getters} = useVariantStore();
     
+    const selectedVariant = selected && getters.getVariantById(selected.id);
     if(product && product.variant_groups) {
         return product['variant_groups'].map((grp) => {
-             return <VariantGroup key={grp.id} data={grp} variantList={variants}></VariantGroup>
+             return (
+             <div key={grp.id} className="variant-selector">
+                 <VariantGroup  data={grp} variantList={variantState.variants} selected={selectedVariant}></VariantGroup>
+                 <p>{selectedVariant && selectedVariant.description}</p>
+             </div>)
 })
     } else {
         return (<div>... loading</div>)

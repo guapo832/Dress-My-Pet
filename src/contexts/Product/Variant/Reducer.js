@@ -12,7 +12,6 @@ export const variantReducer = (state = initialState, action) => {
 			...state,
 			variants: action.payload
 		}
-      
 	default: return { state };
 	}
 
