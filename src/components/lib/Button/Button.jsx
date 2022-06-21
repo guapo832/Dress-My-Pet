@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Button({onClick, children}) {
+import './Button.styles.scss';
+
+function Button({onClick, children, className}) {
 	return (
-		<button className="dmp-btn" onClick={onClick}>
+		<button className={`dmp-btn ${className || ''}`} onClick={onClick}>
 			{children}
 		</button>
 	);

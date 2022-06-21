@@ -4,7 +4,6 @@ import { useProductStore } from '../../../contexts/Product/StoreProvider';
 import { useVariantStore } from '../../../contexts/Product/Variant/StoreProvider';
 import  AddToCartButton  from '../../../components/lib/AddToCartButton/AddToCartButton';
 import VariantSelector from './VariantSelector/VariantSelector';
-import {isEqual} from 'lodash';
 import './ProductDetail.styles.scss';
 
 function ProductDetail() {
@@ -14,31 +13,41 @@ function ProductDetail() {
     const [assets, setAssets] = useState([]);
 	const [ price, setPrice] = useState();
 	const [ selectedVariantId, setSelectedVariantId] = useState();
+	const [ selectedVariant, setSelectedVariant] = useState();
 
 	const [{product, selectedOptions}] = useProductStore();
-	const {variants} = useVariantStore();
+	const {state: variantState, getters} = useVariantStore();
 
 	
 	useEffect(() =>{
-		let variant = variants.find((variant) => (variant.id === selectedVariantId));
-		if(variant) {
-			setPrice(getPrice(variant, product));
-			if(variant.assets.length > 0) {
-				setAssets(variant.assets);
+		if(variantState.variants && variantState.variants.length > 0) {
+			let variant = getters.getVariantById(selectedVariantId);
+			if(variant) {
+				setPrice(getPrice(variant, product));
+				if(variant.assets.length > 0) {
+					setAssets(variant.assets);
+				} else {
+					setAssets(product.assets);
+				}	
 			} else {
-				setAssets(product.assets);
-			}	
+				setPrice(getPrice(variant, product));
+				setAssets(product.assets || [])
+			}
 		} else {
-			setPrice(getPrice(variant, product));
-			setAssets(product.assets || [])
+			setPrice(getPrice(null, product));
 		}
+		
 	}, [selectedVariantId, product]);
 
 	useEffect(() => {
-		let selectedVariant = variants.find(variant => isEqual(variant.options, selectedOptions));
-		if (selectedVariant) {
-			setSelectedVariantId(selectedVariant.id);
+		if(variantState.variants && variantState.variants.length > 0) {
+			let selectedVariant = getters.getVariantByOption(selectedOptions);
+			if (selectedVariant) {
+				setSelectedVariant(selectedVariant);
+				setSelectedVariantId(selectedVariant.id);
+			}
 		}
+		
 	}, [selectedOptions]);
 
 	const getPrice = (variant, product) => {
@@ -76,7 +85,7 @@ function ProductDetail() {
 								<AddToCartButton productId={product.id} variantId={selectedVariantId} />
 							</div>
 							<div className="product-caddy-section">
-									<VariantSelector product={product}></VariantSelector>
+									<VariantSelector product={product} selected={selectedVariant}></VariantSelector>
 							</div>
 
 						</div>

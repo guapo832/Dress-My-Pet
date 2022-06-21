@@ -1,6 +1,12 @@
+@import '../../assests/mixins/devices';
+
 .content-layout {
     padding: 16px 24px;
     display:block;
     height: 100vh;
-    opacity: 0.86;
+    background-color: rgba(255,255,255,0.86);
+
+    @include mobile-and-tablet {
+        height:100%;
+    }
 }

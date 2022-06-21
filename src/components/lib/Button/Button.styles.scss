@@ -1,5 +1,26 @@
+@import "../../../assests/styles/colors.scss";
+
 .dmp-btn {
-    color:white;
-    font-weight: 600;
-    background-color: white;
+    
+    border-radius: 25px;
+    padding:0 20px;
+    height: 2.5rem;
+    border: 0;
+    opacity: 0.75;
+    cursor: pointer;
+    background-color: $clr-button-disabled;
+    transition: background-color .5s;
+
+    &.selected {
+        color:white;
+        font-weight: 600;
+        background-color: $clr-button;
+    }
+
+    &:hover {
+        color:white;
+        font-weight: 600;
+        background-color: $clr-button;
+    }
+
 }

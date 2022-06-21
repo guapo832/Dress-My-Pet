@@ -3,7 +3,7 @@ import { Button } from '../../../../lib';
 import { useProductStore,  } from '../../../../../contexts/Product/StoreProvider';
 import { setSelectedOption } from '../../../../../contexts/Product/actions';
 
-function VariantOption({groupId, data}) {
+function VariantOption({groupId, data, selected}) {
 
         const [{product}, dispatch] = useProductStore();
         const displayVariant = () => {
@@ -12,7 +12,7 @@ function VariantOption({groupId, data}) {
 
         return (
             <div>
-             <Button onClick={displayVariant}>{data.name}</Button>
+             <Button className={selected ? 'selected' : ''} onClick={displayVariant}>{data.name}</Button>
             </div>
           );
 }
