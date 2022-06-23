@@ -7,13 +7,14 @@
     height:640px;
     width:100%;
 
+
     @include desktop-and-laptop {
         max-height: 480px;
     }
 
     @include mobile-and-tablet {
         flex-wrap: wrap;
-        max-height: 640px;
+        max-height: 480px;
     }
 
     .image-view {
@@ -21,6 +22,11 @@
        max-height: 640px;
        padding: 0 60px 0;
 
+        @include mobile-and-tablet {
+            padding: 0;
+            max-height: 320px;
+        }
+       
     }
 
     .main-image {
@@ -29,8 +35,9 @@
         object-fit: cover;
         height: 100%;
         width:100%;
-        min-width: 320px;
         border-radius: 25px;
+
+        
        
     }
 
@@ -38,6 +45,13 @@
         display:flex;
         flex-direction: column;
         justify-content: space-around;
+        
+        @include mobile-and-tablet {
+            flex-direction: row;
+            flex-basis: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
         
         .thumbnail-container {
             button {

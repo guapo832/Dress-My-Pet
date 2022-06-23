@@ -6,7 +6,7 @@ function VariantSelector({product, selected}) {
 
 	const {state: variantState, getters} = useVariantStore();
     
-    const selectedVariant = selected && getters.getVariantById(selected.id);
+    const selectedVariant = selected?  getters.getVariantById(selected.id) : getters.getVariantById(null);
     if(product && product.variant_groups) {
         return product['variant_groups'].map((grp) => {
              return (
