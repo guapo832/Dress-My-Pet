@@ -6,7 +6,7 @@ export const getters = (state) => {
         if(variantId) {
             return { ...state.variants.find(variant => variant.id === variantId )}
         } else {
-            return null;
+            return { ...state.variants[0]};
         }
     },
     getVariantByOption: (options) => ({...state.variants.find(variant => isEqual(variant.options, options))})
