@@ -9,4 +9,8 @@
     @include mobile-and-tablet {
         height:100%;
     }
+
+    @include mobile {
+        padding: 16px 8px;
+    }
 }
