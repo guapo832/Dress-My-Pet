@@ -1,7 +1,7 @@
 
 .product-list {
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 60px;
+    row-gap: 80px;
 }

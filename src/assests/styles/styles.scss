@@ -1,9 +1,14 @@
 
 body {
+    
     background-color: black;
     display:flex;
     flex-direction: column;
-    margin:0;
+    margin: 0;
+
+    p {
+        margin: 0;
+    }
     
     #root {
         background-image: url(../images/278239420_513589940424101_354968525891982853_n.jpg);
@@ -15,6 +20,7 @@ body {
         width: 100%;
         .main {
             min-height: 100vh;
+            padding:75px 0 0 0;
         }
     }
 
