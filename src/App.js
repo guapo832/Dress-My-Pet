@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, About, Product, Cart } from './pages';
-import { TopNav, BottomNavbar } from './components';
+import { TopNav } from './components';
 import { CartStoreProvider } from './contexts/Cart/CartStoreProvider';
 
 import './assests/styles/styles.scss';
@@ -13,7 +13,7 @@ const App = () => {
 			<>
 				<CartStoreProvider>
 					<TopNav></TopNav>
-					<div class="main">
+					<div className="main">
 						<Routes>
 							<Route path="/" element={<Home />} />
 							<Route path="/about" element={<About />} />
@@ -24,7 +24,6 @@ const App = () => {
 							<Route path="/cart" element={<Cart />} />
 						</Routes>
 					</div>
-					<BottomNavbar />
 				</CartStoreProvider>
 			</>
             

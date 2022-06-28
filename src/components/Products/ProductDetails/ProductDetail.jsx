@@ -35,9 +35,10 @@ function ProductDetail() {
 			}
 		} else {
 			setPrice(getPrice(null, product));
+			setAssets(product.assets);
 		}
 		
-	}, [selectedVariantId, product]);
+	}, [selectedVariantId, product, variantState.variants]);
 
 	useEffect(() => {
 		if(variantState.variants && variantState.variants.length > 0) {
@@ -48,7 +49,7 @@ function ProductDetail() {
 			}
 		}
 		
-	}, [selectedOptions]);
+	}, [selectedOptions, variantState.variants, getters]);
 
 	const getPrice = (variant, product) => {
 		if(!variant || !variant.price) {
@@ -73,7 +74,7 @@ function ProductDetail() {
 						</div>
 					</section>
 
-					<div className="right-container">
+					<section className="right-container">
 						<div className="product-caddy">
 							<div className="product-caddy-section">
 								<h2>
@@ -84,12 +85,15 @@ function ProductDetail() {
 								</div>
 								<AddToCartButton productId={product.id} variantId={selectedVariantId} />
 							</div>
-							<div className="product-caddy-section">
-									<VariantSelector product={product} selected={selectedVariant}></VariantSelector>
-							</div>
+							{
+								variantState.variants && variantState.variants.length > 0 ? (
+									<div className="product-caddy-section">
+										<VariantSelector product={product} selected={selectedVariant}></VariantSelector>
+									</div>): ''
+							}
 
 						</div>
-					</div>
+					</section>
 		
 				</div>);
 	} else {
